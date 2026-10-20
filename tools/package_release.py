@@ -62,7 +62,7 @@ def main():
     run(tools / 'zipalign', '-f', '-P', '16', '4', unsigned, aligned)
     run(tools / 'apksigner', 'sign', '--ks', signing / 'release.keystore',
         '--ks-key-alias', 'galaxyupdateguard-release', '--ks-pass', 'file:' + str(signing / 'password'),
-        '--key-pass', 'file:' + str(signing / 'password'), '--out', apk, aligned)
+        '--out', apk, aligned)
     run(tools / 'zipalign', '-c', '-P', '16', '4', apk)
     verification = run(tools / 'apksigner', 'verify', '--verbose', '--print-certs', apk, capture=True).stdout
     (dist / f'GalaxyUpdateGuard-{version}-signature.txt').write_text(verification)

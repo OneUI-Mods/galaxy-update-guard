@@ -9,10 +9,16 @@ import java.util.concurrent.*;
 final class RootShell {
   static final class Denied extends IOException {}
 
+  static final class CommandFailed extends IOException {}
+
   static final class TimedOut extends IOException {}
 
   static void requireRoot() throws Exception {
-    if (!run("exec /system/bin/id -u").trim().equals("0")) throw new Denied();
+    try {
+      if (!run("exec /system/bin/id -u").trim().equals("0")) throw new Denied();
+    } catch (CommandFailed denied) {
+      throw new Denied();
+    }
   }
 
   static String run(String command) throws Exception {
@@ -41,7 +47,7 @@ final class RootShell {
     try {
       if (!process.waitFor(20, TimeUnit.SECONDS)) throw new TimedOut();
       String text = output.get(2, TimeUnit.SECONDS);
-      if (process.exitValue() != 0) throw new Denied();
+      if (process.exitValue() != 0) throw new CommandFailed();
       return text;
     } finally {
       process.destroyForcibly();
