@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import java.util.Map
 import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
 import kotlin.concurrent.Volatile
 import kotlin.jvm.JvmRecord
 
@@ -24,7 +23,7 @@ class GuardModel(app: Application) : AndroidViewModel(app!!) {
     }
 
     private val state: MutableLiveData<GuardModel.State> = MutableLiveData<GuardModel.State>()
-    private val worker: ExecutorService? = Executors.newSingleThreadExecutor()
+    private val worker: ExecutorService? = BackgroundExecutors.serial("GalaxyUpdateCommands")
     private val backend: PackageBackend
     private val store: JournalStore
     private val blocker: UpdateBlocker
@@ -67,7 +66,7 @@ class GuardModel(app: Application) : AndroidViewModel(app!!) {
                     busy = false
                     publish(error)
                 }
-            }
+            },
         )
     }
 
@@ -81,7 +80,7 @@ class GuardModel(app: Application) : AndroidViewModel(app!!) {
                     null,
                     busy,
                     R.string.state_failed,
-                )
+                ),
             )
         }
     }
