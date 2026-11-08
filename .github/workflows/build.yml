@@ -18,7 +18,3 @@ jobs:
       - run: ./gradlew :app:testDebugUnitTest :app:lintRelease :app:assembleRelease :app:writeRuntimeDependencyList
       - run: python3 tools/check_license_catalog.py
       - run: python3 tools/package_release.py --check-release-apk app/build/outputs/apk/release/app-release-unsigned.apk
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: GalaxyUpdateGuard-release-unsigned
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
