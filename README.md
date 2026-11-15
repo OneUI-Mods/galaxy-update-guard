@@ -1,5 +1,7 @@
 # Galaxy Update Guard
 
+[日本語](README.md) · [English](README.en.md)
+
 Samsung GalaxyのOSアップデートを停止し、元の状態へ復元するroot向けアプリです。Google Playシステム更新とアプリ更新は対象に含めません。
 
 ## 対応環境
