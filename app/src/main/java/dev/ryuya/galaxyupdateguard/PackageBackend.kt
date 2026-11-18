@@ -7,7 +7,6 @@ import android.content.pm.PackageManager.NameNotFoundException
 import android.os.Build
 import android.os.Process
 import java.util.LinkedHashMap
-import java.util.Map
 import kotlin.jvm.JvmRecord
 import kotlin.jvm.JvmStatic
 
@@ -27,7 +26,7 @@ class PackageBackend(context: Context) : UpdateBlocker.Backend {
 
     @Throws(Exception::class)
     fun targets(): MutableMap<String?, PackageBackend.Target> {
-        if (!PackageBackend.supportedDevice()) return Map.of<String?, PackageBackend.Target?>()
+        if (!PackageBackend.supportedDevice()) return mutableMapOf()
         val result = LinkedHashMap<String?, PackageBackend.Target>()
         for (name in UpdatePackages.ALL!!) {
             try {

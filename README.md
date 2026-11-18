@@ -32,3 +32,5 @@ Android 16・17のGalaxyで、SamsungのOS更新用サービスがシステム�
 ## 文字列の互換性
 
 ライセンス一覧の検索・バージョン表示で、一部の空白文字の扱いを従来どおりに戻しました。
+
+[Build environment / ビルド環境](docs/build-environment.md)
