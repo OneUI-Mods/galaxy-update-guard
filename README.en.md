@@ -1,12 +1,14 @@
 # Galaxy Update Guard
 
+Installation requires Android 17 (API 37) or later.
+
 [日本語](README.md) · English
 
 A root app that disables Samsung Galaxy OS updates and restores their previous state. Google Play system updates and app updates are excluded.
 
 ## Requirements
 
-Targets Android 16/17 Galaxy devices whose Samsung OS-update services are installed as system apps. Use it in the main user. Xposed and Vector are not required.
+Targets Android 17 Galaxy devices whose Samsung OS-update services are installed as system apps. Use it in the main user. Xposed and Vector are not required.
 
 ## Usage
 

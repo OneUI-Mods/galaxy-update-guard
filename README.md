@@ -1,12 +1,14 @@
 # Galaxy Update Guard
 
+インストールにはAndroid 17（API 37）以降が必要です。
+
 [日本語](README.md) · [English](README.en.md)
 
 Samsung GalaxyのOSアップデートを停止し、元の状態へ復元するroot向けアプリです。Google Playシステム更新とアプリ更新は対象に含めません。
 
 ## 対応環境
 
-Android 16・17のGalaxyで、SamsungのOS更新用サービスがシステムアプリとして存在する環境が対象です。メインユーザーで使用してください。XposedやVectorは不要です。
+Android 17のGalaxyで、SamsungのOS更新用サービスがシステムアプリとして存在する環境が対象です。メインユーザーで使用してください。XposedやVectorは不要です。
 
 ## 使い方
 
